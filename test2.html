@@ -1,0 +1,119 @@
+<html>
+
+<body>
+    <script src="test2.js"></script>
+
+    <p>Hello world</p>
+
+    <canvas id="myCanvas" width="200" height="200" style="border:1px solid #000000;"></canvas>
+
+    <script>
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        
+        let grd = ctx.createLinearGradient(0,0,200,0);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(0.5,"blue");
+        grd.addColorStop(1,"white");
+        
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,200,200);
+
+        ctx.moveTo(0,0);
+        ctx.lineTo(200,200);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(100,100,40,0,2*Math.PI);
+        ctx.stroke();
+
+        ctx.font = "30px Arial";
+        ctx.strokeText("Happy new year 2024",10,50);
+
+        let img = new Image();
+        img.onload = () => {
+            ctx.drawImage(img,0,0);
+        };
+        img.src = "lamp-on.png";
+        img.moveTo(100,100);
+       
+
+
+    </script>
+
+    <input id="num1"/>
+    <input id="num2"/>
+
+    <p id="result">0</p>
+
+    <button onclick="doEquation()">show result</button>
+
+    <script>
+        /*
+        var x = 5;
+        var y = 6;
+        var z = x + y;
+        document.getElementById("result").innerHTML = z;
+        */
+
+        document.write("<p><b>merry christmas</b></p>");
+
+        function doEquation() {
+            let a = document.getElementById("num1").value;
+            let b = document.getElementById("num2").value;
+
+            document.getElementById("result").innerHTML = myFunction(a,b);
+            document.getElementById("result").style.fontSize = "100px"
+        }
+
+    </script>
+
+
+    <hr>
+
+    <img id="myDoor" src="door-closed.png" onclick="doorOpenClose()"/>
+
+    <button onclick="doorOpenClose()">Open/Close the door</button>
+
+    <script>
+
+        let isOpened = false;
+        let openedTimes = 0;
+        let totalWarningTimes = 10;
+
+        function doorOpenClose() {
+            console.log("door clicked " + openedTimes);
+
+            if( isOpened == true ) {
+                doorClose();
+            } else {
+                doorOpen();
+            }
+        }
+
+        function doorOpen() {
+            document.getElementById("myDoor").src = "door-opened.png";
+            isOpened = true;
+            openedTimes ++;
+            if(openedTimes > totalWarningTimes) {
+                alert("warning door will crack");
+                let n = prompt("notify in how many times");
+                totalWarningTimes = n;
+                openedTimes = 0;
+            }
+
+            ctx.strokeText("OPEN",10,50);
+        }
+
+        function doorClose() {
+            document.getElementById("myDoor").src = "door-closed.png";
+            isOpened = false;
+            ctx.strokeText("CLOSE",10,50);
+        }
+
+
+    </script>
+
+</body>
+</html>

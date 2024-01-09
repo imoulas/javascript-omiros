@@ -1,0 +1,63 @@
+<html>
+<body>
+
+<h1 id="myHeader">test 1</h1>
+
+<button onclick="bigLetters()">big letters</button>
+
+<script>
+    document.write(10+1);
+</script>
+
+<script src="test1.js"></script>
+
+<button type="button" onclick="myDate()">Click me</button>
+
+<p id="demo">Here goes the date</p>
+
+
+<button onclick="lampOn()">Turn on</button>
+<button onclick="lampOff()">Turn off</button>
+
+<img id="myLamp" src="lamp-off.png">
+
+<script>
+    function lampOn() {
+        document.getElementById('myLamp').src='lamp-on.png';
+        window.alert("the lamp is ON");
+    }
+
+    function lampOff() {
+        document.getElementById('myLamp').src='lamp-off.png';
+        window.alert("the lamp is OFF");
+    }
+
+    function bigLetters() {
+        document.getElementById('myHeader').style.fontSize = "100px";
+        //document.getElementById('myHeader').style.display = "none";
+        console.log("the user pressed bigletters button");
+    }
+
+</script>
+
+<hr>
+<input id="num1"/>
+<input id="num2"/>
+<button onclick="addNumbers()">Add (+)numbers =</button>
+<p id="myTotal">0</p>
+
+<script>
+    function addNumbers() {
+        let a = document.getElementById("num1").value;
+        let b = document.getElementById("num2").value;
+        //console.log(a);
+        //console.log(b);
+        let total = Number(a) + Number(b);
+        console.log(total);
+        document.getElementById("myTotal").innerHTML = total;
+        document.getElementById("myTotal").style.fontSize = "30px";
+    }
+</script>
+
+</body>
+</html>

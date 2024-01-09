@@ -1,0 +1,28 @@
+<html>
+    <body>
+
+        <form name="myForm">
+            <input name="first" value="santa">
+            <input name="last">
+            <input type="radio" name="age" value="100+">
+            <input type="radio" name="age" value="150+">
+
+        </form>
+
+        <button onclick="test()">click me</button>
+
+        <script>
+            function test() {
+                let form = document.forms.myForm;
+
+                let firstname = form.elements.first;
+
+                //alert(firstname.value);
+
+                let ageElements = form.elements.age;
+                alert( ageElements[0].checked );
+            }
+        </script>
+
+    </body>
+</html>

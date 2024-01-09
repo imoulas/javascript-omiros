@@ -1,0 +1,187 @@
+<html>
+    <body>
+        <style>
+            .clock {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                color: #225c69;
+                font-size: 60px;
+                font-family: Orbitron;
+                letter-spacing: 7px;
+            }         
+            #parent {
+                background: #99C0C3;
+                width: 160px;
+                height: 120px;
+                position: relative;
+                }
+
+            #child {
+                background: #FFDE99;
+                width: 50%;
+                height: 50%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }   
+        </style>
+        <h1>test arrays javascript</h1>
+
+        <div id="myClock" class="clock"></div>
+
+        <div id="parent">parent
+            <div id="child">child</div>
+        </div>
+
+
+        <script>
+            //let arr1 = new Array();
+            //let arr2 = [];
+
+            let arr = [
+                "bmw",
+                "mercedes",
+                "opel",
+                "fiat",
+                "honda"
+            ];
+
+            //alert( arr[1] );
+            //alert( arr );
+
+            //alert( arr[ arr.length-1 ] );
+            //alert( arr.at(-1) );
+
+            arr.pop(); //delete the last
+            arr.push("pegeuot"); //add to end
+            
+            arr.shift(); //delete the 1st
+            arr.unshift("renault"); //add to beginning
+
+            arr.speed = 220;
+
+            //alert(arr[0].speed);
+
+            /*
+            for (let i=0; i<arr.length; i++) {
+                alert( arr[i] );
+            }*/
+
+            /*for (let carmaker of arr) {
+                alert( carmaker );
+            }*/
+
+            // array 3X3
+            let matrix = [
+                [0,0,0],
+                [0,8,0],
+                [0,0,0]
+            ];
+
+            //alert( matrix[1][1] );
+
+            let carbmw = {
+                maker: "bmw",
+                type: "coupe",
+                speed: 220
+            };
+            let car2 = {
+                maker: "mercedes",
+                type: "coupe",
+                speed: 210
+            };
+            let car3 = {
+                maker: "toyota",
+                type: "sedan",
+                speed: 210
+            };
+
+
+            let cars = [ carbmw, car2, car3, car3, car2 ];
+
+
+            //alert( cars.length );
+
+            /*
+            for (let car of cars ) {
+                alert( car.maker );
+            }*/
+
+            let name = "Athens";
+
+            //for ( let char of name ) {
+            //    alert(char);
+            //}
+
+
+            startTime();
+
+            function startTime() {
+                const today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+
+                m = m.toString().padStart(2,'0');
+                s = s.toString().padStart(2,'0');
+
+                document.getElementById('myClock').innerHTML =  h + ":" + m + ":" + s;
+                setTimeout(startTime, 1000);
+            }
+
+            myClock.onclick = function(event) {
+                if( event.altKey && event.shiftKey ) {
+                    alert("clicked");
+                }
+            }
+
+            let c = document.getElementById('myClock');
+            //c.onmouseover = c.onmouseout = c.onmousemove = handler;
+
+            c.onmouseover = function(event) {
+                handler(event);
+                event.target.style.background = "yellow";
+            }
+            
+            c.onmouseout = function(event) {
+                handler(event);
+                event.target.style.background = "";
+            }
+            
+            c.onmousemove = function(event) {
+                handler(event);
+            }
+
+            function handler(event) {
+                let type = event.type;
+                while (type.length < 11) type += ' ';
+
+                console.log(type + " target=" + event.target.id)
+                return false;
+            }
+
+            document.onkeypress = function(event) {
+                console.log(event);
+                if( event.code == "KeyA" ) {
+                    console.log("aaaaaaaaaaaaaaaa");
+                }
+            }
+
+            document.onkeydown = function(event) {
+                console.log(event);
+                if( event.code == "ArrowUp" ) {
+                    console.log("UPupupupuppupuu")
+                }
+            }
+
+            window.addEventListener('hashchange', () => {
+                alert("goodbye");
+            });
+
+
+        </script>
+    </body>
+</html>

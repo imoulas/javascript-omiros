@@ -1,0 +1,42 @@
+<html>
+    <body>
+
+        <button onclick="start()">start pow</button>
+
+        <script>
+
+            function start() {
+
+                let result = confirm("θελεις υπολογισμό δύναμης?");
+
+                if ( result==true ) {
+                    let x = prompt("δωστε τον Χ", "");
+                    let n = prompt("δωστε την δυναμη του Χ", "");
+
+                    if ( n < 0 ) {
+                        alert(`Η δυναμη ${n} δεν υποστηρίζεται, πληκτρολογήστε θετικό αριθμό.`);
+                    } else {
+                        //let power = pow(x, n);
+                        let power = Math.pow(x, n);
+                        alert( power );
+                    }
+                } else {
+                    alert("goodbye");
+                }
+            }
+
+            function pow(a, b) {
+                let result = 1;
+                // 2 X 2 X 2 X 2 X 2 ...
+                for (let i = 0; i < b; i++) {
+                    result *= a;
+                    console.log(result);
+                }
+
+                return result; 
+            }
+
+        </script>
+
+    </body>
+</html>
